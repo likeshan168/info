@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="areaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="S_City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="bigint" Nullable="false" />
+    <Property Name="CityName" Type="varchar" MaxLength="50" />
+    <Property Name="ZipCode" Type="varchar" MaxLength="50" />
+    <Property Name="ProvinceID" Type="bigint" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DateUpdated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="S_District">
+    <Key>
+      <PropertyRef Name="DistrictID" />
+    </Key>
+    <Property Name="DistrictID" Type="bigint" Nullable="false" />
+    <Property Name="DistrictName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CityID" Type="bigint" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DateUpdated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="S_Province">
+    <Key>
+      <PropertyRef Name="ProvinceID" />
+    </Key>
+    <Property Name="ProvinceID" Type="bigint" Nullable="false" />
+    <Property Name="ProvinceName" Type="varchar" MaxLength="50" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DateUpdated" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__S_City__Province__08EA5793">
+    <End Role="S_Province" Type="Self.S_Province" Multiplicity="0..1" />
+    <End Role="S_City" Type="Self.S_City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="S_Province">
+        <PropertyRef Name="ProvinceID" />
+      </Principal>
+      <Dependent Role="S_City">
+        <PropertyRef Name="ProvinceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__S_Distric__CityI__09DE7BCC">
+    <End Role="S_City" Type="Self.S_City" Multiplicity="0..1" />
+    <End Role="S_District" Type="Self.S_District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="S_City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="S_District">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="areaModelStoreContainer">
+    <EntitySet Name="S_City" EntityType="Self.S_City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_District" EntityType="Self.S_District" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_Province" EntityType="Self.S_Province" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__S_City__Province__08EA5793" Association="Self.FK__S_City__Province__08EA5793">
+      <End Role="S_Province" EntitySet="S_Province" />
+      <End Role="S_City" EntitySet="S_City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__S_Distric__CityI__09DE7BCC" Association="Self.FK__S_Distric__CityI__09DE7BCC">
+      <End Role="S_City" EntitySet="S_City" />
+      <End Role="S_District" EntitySet="S_District" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

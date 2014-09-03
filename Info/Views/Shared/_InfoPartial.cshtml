@@ -1,0 +1,50 @@
+﻿@model  IEnumerable<Info.Models.research_application_tb>
+@for (int i = 0; i < Model.Count(); i++)
+{
+    <tr>
+        <td>
+            @(i + 1 + ((int)Cache["page"] - 1) * 8)
+        </td>
+        <td>
+            @Html.DisplayFor(model => Model.ElementAtOrDefault(i).BCompany)
+        </td>
+        <td>
+            @Html.DisplayFor(model => Model.ElementAtOrDefault(i).CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => Model.ElementAtOrDefault(i).ContactPerson)
+        </td>
+        <td>
+            @Html.DisplayFor(model => Model.ElementAtOrDefault(i).ContactPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(model => Model.ElementAtOrDefault(i).CompanyAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(model => Model.ElementAtOrDefault(i).Province)
+        </td>
+        <td>
+            @Html.DisplayFor(model => Model.ElementAtOrDefault(i).City)
+        </td>
+        <td>
+            @if (Model.ElementAtOrDefault(i).Image != null)
+            {
+                <a href="@Url.Action("GetImage", "info", new { Model.ElementAtOrDefault(i).Id })" rel="lightbox"> <img async width="40" height="40" src="@Url.Action("GetSmallImage", "info", new { Model.ElementAtOrDefault(i).Id })" /></a>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(model => Model.ElementAtOrDefault(i).Remark)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id = Model.ElementAtOrDefault(i).Id }) |
+            @Html.ActionLink("详情", "Details", new { id = Model.ElementAtOrDefault(i).Id }) |
+            @Html.ActionLink("删除", "Delete", new { id = Model.ElementAtOrDefault(i).Id })
+        </td>
+    </tr>
+}
+
+
+
+
+
+

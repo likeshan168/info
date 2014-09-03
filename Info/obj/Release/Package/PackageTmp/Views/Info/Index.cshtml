@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Info.Models.research_application_tb>
+
+@{
+    ViewBag.Title = "主页";
+}
+
+@*<h2>主页</h2>*@
+
+<link href="http://cdn.staticfile.org/lightbox/2.6/css/lightbox.css" rel="stylesheet" />
+
+<h2>
+    @Html.ActionLink("创建", "Create")
+</h2>
+<div class="container">
+    @using (Ajax.BeginForm("Search", "Info", new AjaxOptions { HttpMethod = "Post", OnSuccess = "afterLoad", OnBegin = "beforeLoad" }))
+    {
+        @Html.AntiForgeryToken()
+        @*@Html.TextBox("phoneNo", null, new { type = "text", required = "required", placeholder = "请输入电话号码", @class = "form-control" })*@
+        <select name="cond" class="input-sm">
+            <option value="1">手机号</option>
+            <option value="2">省份</option>
+            <option value="3">业务负责人</option>
+        </select>
+        <input type="text" name="phoneNo" required="required"  class="input-sm" />
+        <input type="submit" value="查询" class="btn btn-default" />
+        <span id="msg" style="display:none;color:blue;">加载数据...</span>
+    }
+</div>
+<div class="container">
+    <table class="table table-hover table-striped" id="infoTb">
+        <tr class="success">
+            <th>
+
+                序号
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BCompany)
+            </th>
+            <th>
+
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactPerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyAddress)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Province)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+            <th>操作</th>
+        </tr>
+        <tbody id="tbodyInfo">
+            @Html.Partial("_InfoPartial", Model)
+
+        </tbody>
+
+    </table>
+</div>
+
+
+<div  id="showBigImg" style="display:none;z-index:1002;position:absolute;top:0px;left:0px; background-color: black">
+    <img src="" id="bigImg" />
+    <input type="hidden" value="2" id="pageNum" />
+</div>
+@section scripts
+{
+
+    @Scripts.Render("~/bundles/ajax")
+    @*<script type="text/javascript" src="http://cdn.staticfile.org/lightbox/2.6/js/lightbox.min.js"></script>*@
+    @Scripts.Render("~/bundles/index")
+}

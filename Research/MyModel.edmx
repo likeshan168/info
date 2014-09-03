@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="cosenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="research_application_tb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="20" />
+          <Property Name="ContactPerson" Type="varchar" MaxLength="20" />
+          <Property Name="ContactPhone" Type="varchar" MaxLength="20" />
+          <Property Name="CompanyAddress" Type="varchar" MaxLength="100" />
+          <Property Name="Referrals" Type="varchar" MaxLength="20" />
+          <Property Name="ReferralsNumber" Type="varchar" MaxLength="30" />
+          <Property Name="Province" Type="varchar" MaxLength="20" />
+          <Property Name="City" Type="varchar" MaxLength="20" />
+          <Property Name="BComany" Type="varchar" MaxLength="100" />
+          <Property Name="CustomerTel" Type="varchar" MaxLength="30" />
+          <Property Name="TbWriter" Type="varchar" MaxLength="100" />
+          <Property Name="PinPai1" Type="varchar" MaxLength="100" />
+          <Property Name="PinPai2" Type="varchar" MaxLength="100" />
+          <Property Name="PinPai3" Type="varchar" MaxLength="100" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Model" Type="varchar" MaxLength="20" />
+          <Property Name="StoreArea" Type="int" />
+          <Property Name="StoreNum" Type="int" />
+          <Property Name="StoreName" Type="varchar" MaxLength="1000" />
+          <Property Name="BusinessRecords" Type="varchar" MaxLength="4" />
+          <Property Name="BrandName" Type="varchar" MaxLength="100" />
+          <Property Name="FriendBrand" Type="varchar" MaxLength="4" />
+          <Property Name="FriendBrandName" Type="varchar" MaxLength="100" />
+          <Property Name="Sales9" Type="int" />
+          <Property Name="Sales10" Type="int" />
+          <Property Name="Sales11" Type="int" />
+          <Property Name="Sales12" Type="int" />
+          <Property Name="Sales1" Type="int" />
+          <Property Name="Sales2" Type="int" />
+          <Property Name="CooperationMode" Type="varchar" MaxLength="20" />
+          <Property Name="Coordinate" Type="varchar" MaxLength="4" />
+          <Property Name="SendTime" Type="datetime" />
+          <Property Name="AmountExpected" Type="varchar" MaxLength="30" />
+          <Property Name="AgentAdvantages" Type="varchar" MaxLength="100" />
+          <Property Name="FranchiseApplication" Type="varchar" MaxLength="100" />
+          <Property Name="ProfitForecast" Type="varchar" MaxLength="4" />
+          <Property Name="Suggestions" Type="varchar" MaxLength="1000" />
+          <Property Name="Image" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="cosenModelStoreContainer">
+          <EntitySet Name="research_application_tb" EntityType="Self.research_application_tb" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cosenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="research_application_tb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPerson" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Referrals" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ReferralsNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Province" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BComany" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerTel" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TbWriter" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PinPai1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PinPai2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PinPai3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="StoreArea" Type="Int32" />
+          <Property Name="StoreNum" Type="Int32" />
+          <Property Name="StoreName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessRecords" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="BrandName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FriendBrand" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="FriendBrandName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Sales9" Type="Int32" />
+          <Property Name="Sales10" Type="Int32" />
+          <Property Name="Sales11" Type="Int32" />
+          <Property Name="Sales12" Type="Int32" />
+          <Property Name="Sales1" Type="Int32" />
+          <Property Name="Sales2" Type="Int32" />
+          <Property Name="CooperationMode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Coordinate" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="SendTime" Type="DateTime" Precision="3" />
+          <Property Name="AmountExpected" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AgentAdvantages" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FranchiseApplication" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProfitForecast" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Suggestions" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="cosenEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="research_application_tb" EntityType="Self.research_application_tb" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cosenModelStoreContainer" CdmEntityContainer="cosenEntities">
+          <EntitySetMapping Name="research_application_tb">
+            <EntityTypeMapping TypeName="cosenModel.research_application_tb">
+              <MappingFragment StoreEntitySet="research_application_tb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+                <ScalarProperty Name="Referrals" ColumnName="Referrals" />
+                <ScalarProperty Name="ReferralsNumber" ColumnName="ReferralsNumber" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="BComany" ColumnName="BComany" />
+                <ScalarProperty Name="CustomerTel" ColumnName="CustomerTel" />
+                <ScalarProperty Name="TbWriter" ColumnName="TbWriter" />
+                <ScalarProperty Name="PinPai1" ColumnName="PinPai1" />
+                <ScalarProperty Name="PinPai2" ColumnName="PinPai2" />
+                <ScalarProperty Name="PinPai3" ColumnName="PinPai3" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="StoreArea" ColumnName="StoreArea" />
+                <ScalarProperty Name="StoreNum" ColumnName="StoreNum" />
+                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+                <ScalarProperty Name="BusinessRecords" ColumnName="BusinessRecords" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="FriendBrand" ColumnName="FriendBrand" />
+                <ScalarProperty Name="FriendBrandName" ColumnName="FriendBrandName" />
+                <ScalarProperty Name="Sales9" ColumnName="Sales9" />
+                <ScalarProperty Name="Sales10" ColumnName="Sales10" />
+                <ScalarProperty Name="Sales11" ColumnName="Sales11" />
+                <ScalarProperty Name="Sales12" ColumnName="Sales12" />
+                <ScalarProperty Name="Sales1" ColumnName="Sales1" />
+                <ScalarProperty Name="Sales2" ColumnName="Sales2" />
+                <ScalarProperty Name="CooperationMode" ColumnName="CooperationMode" />
+                <ScalarProperty Name="Coordinate" ColumnName="Coordinate" />
+                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+                <ScalarProperty Name="AmountExpected" ColumnName="AmountExpected" />
+                <ScalarProperty Name="AgentAdvantages" ColumnName="AgentAdvantages" />
+                <ScalarProperty Name="FranchiseApplication" ColumnName="FranchiseApplication" />
+                <ScalarProperty Name="ProfitForecast" ColumnName="ProfitForecast" />
+                <ScalarProperty Name="Suggestions" ColumnName="Suggestions" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

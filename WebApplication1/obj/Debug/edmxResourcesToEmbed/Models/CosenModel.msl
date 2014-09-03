@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="areaModelStoreContainer" CdmEntityContainer="areaEntities">
+    <EntitySetMapping Name="S_City">
+      <EntityTypeMapping TypeName="areaModel.S_City">
+        <MappingFragment StoreEntitySet="S_City">
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S_District">
+      <EntityTypeMapping TypeName="areaModel.S_District">
+        <MappingFragment StoreEntitySet="S_District">
+          <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S_Province">
+      <EntityTypeMapping TypeName="areaModel.S_Province">
+        <MappingFragment StoreEntitySet="S_Province">
+          <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+          <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

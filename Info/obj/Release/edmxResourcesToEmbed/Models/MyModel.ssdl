@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="zhdyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="research_application_tb">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="20" />
+    <Property Name="ContactPerson" Type="varchar" MaxLength="20" />
+    <Property Name="ContactPhone" Type="varchar" MaxLength="20" />
+    <Property Name="CompanyAddress" Type="varchar" MaxLength="100" />
+    <Property Name="Province" Type="varchar" MaxLength="20" />
+    <Property Name="City" Type="varchar" MaxLength="20" />
+    <Property Name="Image" Type="varbinary(max)" />
+    <Property Name="ImageType" Type="varchar" MaxLength="100" />
+    <Property Name="Remark" Type="ntext" />
+    <Property Name="BCompany" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="zhdyModelStoreContainer">
+    <EntitySet Name="research_application_tb" EntityType="Self.research_application_tb" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="areaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="S_City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="bigint" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="50" />
+          <Property Name="ProvinceID" Type="bigint" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="S_District">
+          <Key>
+            <PropertyRef Name="DistrictID" />
+          </Key>
+          <Property Name="DistrictID" Type="bigint" Nullable="false" />
+          <Property Name="DistrictName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityID" Type="bigint" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="S_Province">
+          <Key>
+            <PropertyRef Name="ProvinceID" />
+          </Key>
+          <Property Name="ProvinceID" Type="bigint" Nullable="false" />
+          <Property Name="ProvinceName" Type="varchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__S_City__Province__08EA5793">
+          <End Role="S_Province" Type="Self.S_Province" Multiplicity="0..1" />
+          <End Role="S_City" Type="Self.S_City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_Province">
+              <PropertyRef Name="ProvinceID" />
+            </Principal>
+            <Dependent Role="S_City">
+              <PropertyRef Name="ProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__S_Distric__CityI__09DE7BCC">
+          <End Role="S_City" Type="Self.S_City" Multiplicity="0..1" />
+          <End Role="S_District" Type="Self.S_District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="S_District">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="areaModelStoreContainer">
+          <EntitySet Name="S_City" EntityType="Self.S_City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="S_District" EntityType="Self.S_District" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="S_Province" EntityType="Self.S_Province" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__S_City__Province__08EA5793" Association="Self.FK__S_City__Province__08EA5793">
+            <End Role="S_Province" EntitySet="S_Province" />
+            <End Role="S_City" EntitySet="S_City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__S_Distric__CityI__09DE7BCC" Association="Self.FK__S_Distric__CityI__09DE7BCC">
+            <End Role="S_City" EntitySet="S_City" />
+            <End Role="S_District" EntitySet="S_District" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="areaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="S_City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int64" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceID" Type="Int64" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="S_Province" Relationship="areaModel.FK__S_City__Province__08EA5793" FromRole="S_City" ToRole="S_Province" />
+          <NavigationProperty Name="S_District" Relationship="areaModel.FK__S_Distric__CityI__09DE7BCC" FromRole="S_City" ToRole="S_District" />
+        </EntityType>
+        <EntityType Name="S_District">
+          <Key>
+            <PropertyRef Name="DistrictID" />
+          </Key>
+          <Property Name="DistrictID" Type="Int64" Nullable="false" />
+          <Property Name="DistrictName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityID" Type="Int64" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="S_City" Relationship="areaModel.FK__S_Distric__CityI__09DE7BCC" FromRole="S_District" ToRole="S_City" />
+        </EntityType>
+        <EntityType Name="S_Province">
+          <Key>
+            <PropertyRef Name="ProvinceID" />
+          </Key>
+          <Property Name="ProvinceID" Type="Int64" Nullable="false" />
+          <Property Name="ProvinceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="S_City" Relationship="areaModel.FK__S_City__Province__08EA5793" FromRole="S_Province" ToRole="S_City" />
+        </EntityType>
+        <EntityContainer Name="areaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="S_City" EntityType="Self.S_City" />
+          <EntitySet Name="S_District" EntityType="Self.S_District" />
+          <EntitySet Name="S_Province" EntityType="Self.S_Province" />
+          <AssociationSet Name="FK__S_City__Province__08EA5793" Association="areaModel.FK__S_City__Province__08EA5793">
+            <End Role="S_Province" EntitySet="S_Province" />
+            <End Role="S_City" EntitySet="S_City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__S_Distric__CityI__09DE7BCC" Association="areaModel.FK__S_Distric__CityI__09DE7BCC">
+            <End Role="S_City" EntitySet="S_City" />
+            <End Role="S_District" EntitySet="S_District" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK__S_City__Province__08EA5793">
+          <End Type="areaModel.S_Province" Role="S_Province" Multiplicity="0..1" />
+          <End Type="areaModel.S_City" Role="S_City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_Province">
+              <PropertyRef Name="ProvinceID" />
+            </Principal>
+            <Dependent Role="S_City">
+              <PropertyRef Name="ProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__S_Distric__CityI__09DE7BCC">
+          <End Type="areaModel.S_City" Role="S_City" Multiplicity="0..1" />
+          <End Type="areaModel.S_District" Role="S_District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="S_District">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="areaModelStoreContainer" CdmEntityContainer="areaEntities">
+          <EntitySetMapping Name="S_City">
+            <EntityTypeMapping TypeName="areaModel.S_City">
+              <MappingFragment StoreEntitySet="S_City">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="S_District">
+            <EntityTypeMapping TypeName="areaModel.S_District">
+              <MappingFragment StoreEntitySet="S_District">
+                <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+                <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="S_Province">
+            <EntityTypeMapping TypeName="areaModel.S_Province">
+              <MappingFragment StoreEntitySet="S_Province">
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

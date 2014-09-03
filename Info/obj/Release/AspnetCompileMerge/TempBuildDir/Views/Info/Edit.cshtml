@@ -1,0 +1,108 @@
+﻿@model Info.Models.CreateInfo
+
+@{
+    ViewBag.Title = "编辑";
+}
+
+<h2>编辑信息</h2>
+<link href="http://cdn.staticfile.org/lightbox/2.6/css/lightbox.css" rel="stylesheet" />
+
+@using (Html.BeginForm("Edit", "Info", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+
+    <table>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "control-label" })</td>
+            <td>
+                @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+            </td>
+
+            <td>@Html.LabelFor(model => model.ContactPerson, htmlAttributes: new { @class = "control-label" })</td>
+            <td>
+                @Html.EditorFor(model => model.ContactPerson, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ContactPerson, "", new { @class = "text-danger" })
+            </td>
+
+
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ContactPhone, htmlAttributes: new { @class = "control-label" })
+            </td>
+            <td>
+                @Html.EditorFor(model => model.ContactPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ContactPhone, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                @Html.LabelFor(model => model.Province, htmlAttributes: new { @class = "control-label" })
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Province, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Province, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+
+            <td>@Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label" })</td>
+            <td>
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                @Html.LabelFor(model => model.CompanyAddress, htmlAttributes: new { @class = "control-label" })
+            </td>
+            <td>
+                @Html.EditorFor(model => model.CompanyAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompanyAddress, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">@Html.LabelFor(model => model.ImageFile, htmlAttributes: new { @class = "control-label" })</td>
+            <td colspan="2">
+                @Html.TextBoxFor(model => model.ImageFile, new { type = "file", @class = "form-control" })
+                <div id="showimg">
+                    @if (Model.Image != null)
+                    {
+                        <a href="@Url.Action("GetImage", "info", new { Model.Id })" rel="lightbox">    <img width="40" height="40" src="@Url.Action("GetSmallImage", "info", new { Model.Id })" /></a>
+
+                        @Ajax.ActionLink("删除", "DelImage", new { Model.Id }, new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "showimg" });
+                    }
+                </div>
+
+
+                @Html.ValidationMessageFor(model => model.ImageFile, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @Html.LabelFor(model => model.BCompany, htmlAttributes: new { @class = "control-label" })
+            </td>
+            <td colspan="2">@Html.EditorFor(model => model.BCompany, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td colspan="2">@Html.LabelFor(model => model.Remark, htmlAttributes: new { @class = "control-label" })</td>
+            <td colspan="2">@Html.TextAreaFor(model => model.Remark, new { cols = "45", rows = "5" })</td>
+
+        </tr>
+
+        <tr>
+            <td colspan="4" class="text-center"><input type="submit" value="保存" class="btn btn-default" /></td>
+        </tr>
+    </table>
+}
+
+<div>
+    @Html.ActionLink("返回列表", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/ajax")
+}

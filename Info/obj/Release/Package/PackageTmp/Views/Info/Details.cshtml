@@ -1,0 +1,93 @@
+﻿@model Info.Models.research_application_tb
+
+@{
+    ViewBag.Title = "详情";
+}
+
+<h2>详情信息</h2>
+<link href="http://cdn.staticfile.org/lightbox/2.6/css/lightbox.css" rel="stylesheet" />
+<div>
+    @*<h4>访客信息表</h4>*@
+    <hr />
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BCompany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPerson)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyAddress)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Province)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Province)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+        <dt>@Html.DisplayNameFor(model => model.Image)</dt>
+        <dd>
+            @if (Model.Image != null)
+            {
+              <a href="@Url.Action("GetImage", "info", new { Model.Id })" rel="lightbox">  <img width="40" height="40" src="@Url.Action("GetSmallImage", "info", new { Model.Id })" /></a>
+            }
+           
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("返回列表", "Index") |
+    @Html.ActionLink("创建", "Create")
+</p>

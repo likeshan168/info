@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="zhdyModelStoreContainer" CdmEntityContainer="cosenEntities">
+    <EntitySetMapping Name="research_application_tb">
+      <EntityTypeMapping TypeName="zhdyModel.research_application_tb">
+        <MappingFragment StoreEntitySet="research_application_tb">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ImageType" ColumnName="ImageType" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="BCompany" ColumnName="BCompany" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

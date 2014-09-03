@@ -1,0 +1,60 @@
+﻿@model WebApplication1.Models.S_Province
+@using WebApplication1.Resources
+@{
+    ViewBag.Title = Resource.Details;
+}
+
+<h2>@Resource.Details</h2>
+
+<div>
+    <h4>@Resource.Province</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProvinceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProvinceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpdated)
+        </dd>
+
+    </dl>
+
+    <table class="table">
+        @foreach (var item in Model.S_City)
+        {
+            <tr>
+                <th>
+                    @item.CityName
+                </th>
+                <th>
+                    @item.DateCreated
+                </th>
+                <th>
+                    @item.DateUpdated
+                </th>
+                <th></th>
+            </tr>
+        }
+    </table>
+</div>
+<p>
+    @Html.ActionLink(@Resource.Edit, "Edit", new { id = Model.ProvinceID }) |
+    @Html.ActionLink(@Resource.BacktoList, "Index")
+</p>

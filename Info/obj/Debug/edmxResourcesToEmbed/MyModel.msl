@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cosenModelStoreContainer" CdmEntityContainer="cosenEntities">
+    <EntitySetMapping Name="research_application_tb">
+      <EntityTypeMapping TypeName="cosenModel.research_application_tb">
+        <MappingFragment StoreEntitySet="research_application_tb">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+          <ScalarProperty Name="Referrals" ColumnName="Referrals" />
+          <ScalarProperty Name="ReferralsNumber" ColumnName="ReferralsNumber" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="BComany" ColumnName="BComany" />
+          <ScalarProperty Name="CustomerTel" ColumnName="CustomerTel" />
+          <ScalarProperty Name="TbWriter" ColumnName="TbWriter" />
+          <ScalarProperty Name="PinPai1" ColumnName="PinPai1" />
+          <ScalarProperty Name="PinPai2" ColumnName="PinPai2" />
+          <ScalarProperty Name="PinPai3" ColumnName="PinPai3" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="StoreArea" ColumnName="StoreArea" />
+          <ScalarProperty Name="StoreNum" ColumnName="StoreNum" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="BusinessRecords" ColumnName="BusinessRecords" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="FriendBrand" ColumnName="FriendBrand" />
+          <ScalarProperty Name="FriendBrandName" ColumnName="FriendBrandName" />
+          <ScalarProperty Name="Sales9" ColumnName="Sales9" />
+          <ScalarProperty Name="Sales10" ColumnName="Sales10" />
+          <ScalarProperty Name="Sales11" ColumnName="Sales11" />
+          <ScalarProperty Name="Sales12" ColumnName="Sales12" />
+          <ScalarProperty Name="Sales1" ColumnName="Sales1" />
+          <ScalarProperty Name="Sales2" ColumnName="Sales2" />
+          <ScalarProperty Name="CooperationMode" ColumnName="CooperationMode" />
+          <ScalarProperty Name="Coordinate" ColumnName="Coordinate" />
+          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+          <ScalarProperty Name="AmountExpected" ColumnName="AmountExpected" />
+          <ScalarProperty Name="AgentAdvantages" ColumnName="AgentAdvantages" />
+          <ScalarProperty Name="FranchiseApplication" ColumnName="FranchiseApplication" />
+          <ScalarProperty Name="ProfitForecast" ColumnName="ProfitForecast" />
+          <ScalarProperty Name="Suggestions" ColumnName="Suggestions" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
